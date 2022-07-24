@@ -1,0 +1,39 @@
+---
+name: "build"
+
+on:  # yamllint disable-line rule:truthy
+  pull_request:
+  push:
+    branches: master
+
+jobs:
+  build:
+    name: Python ${{ matrix.python-version }} | Databend ${{ matrix.databend-version}} | Ubuntu
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - '3.8'
+          - '3.9'
+        databend-version:
+          - 'v0.7.139-nightly'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install requirements
+        run: pip install -r requirements-dev.txt
+
+      - name: Run databend
+        run: docker run --rm --detach --network host -p 8081:8081 -p 3307:3307 --name databend datafuselabs/databend:${{ matrix.databend-version }}
+
+      - name: Run tests
+        run: |
+          PYTHONPATH="${PYTHONPATH}:dbt" pytest tests/integration

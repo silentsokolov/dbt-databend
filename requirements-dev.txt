@@ -1,0 +1,11 @@
+black==22.6.0
+dbt-core==1.1
+dbt-tests-adapter==1.1
+isort==5.10.1
+mypy==0.971
+pylint==2.14.5
+pytest-cov==3.0.0
+pytest-dotenv==0.5.2
+pytest==7.1.2
+yamllint==1.27.1
+mysql-connector-python>=8.0.0,<8.1

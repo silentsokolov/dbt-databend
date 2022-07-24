@@ -1,0 +1,22 @@
+---
+default:
+  outputs:
+
+    dev:
+      type: databend
+      schema: [database name]
+      host: [host]
+
+      port: [port]
+      user: [user]
+      password: [password]
+
+    prod:
+      type: databend
+      schema: [database name]
+      host: [host]
+
+      port: [port]
+      user: [user]
+
+  target: dev
