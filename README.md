@@ -42,7 +42,7 @@ So we use a simple model `schema.table`, where `schema` is the Databend's databa
 
 | Option     | Description                                                                                                                                            | Required?              |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
-| cluster_by | For detailed information about the CLUSTER BY clause, see [SET CLUSTER KEY](https://databend.rs/doc/reference/sql/ddl/clusterkey/dml-set-cluster-key). | Optional (default: ``) |
+| cluster_by | For detailed information about the CLUSTER BY clause, see [SET CLUSTER KEY](https://databend.rs/doc/reference/sql/ddl/clusterkey/dml-set-cluster-key). | Optional (default: `empty`) |
 
 ### Profile Configuration
 
