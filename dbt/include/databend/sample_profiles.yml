@@ -1,5 +1,6 @@
 ---
 default:
+  target: dev
   outputs:
 
     dev:
@@ -18,5 +19,3 @@ default:
 
       port: [port]
       user: [user]
-
-  target: dev

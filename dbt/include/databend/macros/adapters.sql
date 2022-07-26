@@ -1,3 +1,17 @@
+{% macro cluster_by_clause(label) %}
+  {%- set cols = config.get('cluster_by', validator=validation.any[list, basestring]) -%}
+  {%- if cols is not none %}
+    {%- if cols is string -%}
+      {%- set cols = [cols] -%}
+    {%- endif -%}
+    {{ label }}
+    {%- for item in cols -%}
+      {{ item }}
+      {%- if not loop.last -%},{%- endif -%}
+    {%- endfor -%}
+  {%- endif %}
+{%- endmacro -%}
+
 {% macro databend__create_table_as(temporary, relation, sql) -%}
   {%- set sql_header = config.get('sql_header', none) -%}
 
@@ -7,6 +21,7 @@
     create transient table {{ relation.name }}
   {%- else %}
     create table {{ relation.include(database=False) }}
+    {{ cluster_by_clause(label="cluster by") }}
   {%- endif %}
   as {{ sql }}
 {%- endmacro %}
