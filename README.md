@@ -23,6 +23,8 @@ python -m pip install dbt-databend
 
 ### Supported features
 
+Databend does not support a `ALTER` query for change a tables schema. So some features are not available.
+
 - [x] Table materialization
 - [x] View materialization
 - [ ] Incremental materialization
