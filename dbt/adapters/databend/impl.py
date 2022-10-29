@@ -262,6 +262,14 @@ class DatabendAdapter(SQLAdapter):
 
         return sql
 
+    @property
+    def default_python_submission_method(self):
+        raise NotImplementedError("default_python_submission_method is not specified")
+
+    @property
+    def python_submission_helpers(self):
+        raise NotImplementedError("python_submission_helpers is not specified")
+
 
 COLUMNS_EQUAL_SQL = """
 SELECT
