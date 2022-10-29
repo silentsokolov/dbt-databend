@@ -21,7 +21,7 @@ package_name = "dbt-databend"
 package_version = _dbt_databend_version()
 description = """The Databend plugin for dbt (data build tool)"""
 
-dbt_version = "1.1"
+dbt_version = "1.3"
 
 if not package_version.startswith(dbt_version):
     raise ValueError(

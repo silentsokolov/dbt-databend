@@ -44,3 +44,10 @@ fmt:
 	@isort .
 	@echo "--> Running black"
 	@black .
+
+# Test
+.PHONY: test
+
+test:
+	@echo "--> Running tests"
+	PYTHONPATH="${PYTHONPATH}:dbt" pytest -v tests/integration

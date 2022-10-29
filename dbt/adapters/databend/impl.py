@@ -1,12 +1,10 @@
-import csv
-import io
 from concurrent.futures import Future
 from dataclasses import dataclass
 from typing import Callable, List, Optional, Set, Union
 
 import agate
 import dbt.exceptions
-from dbt.adapters.base import AdapterConfig, available
+from dbt.adapters.base import AdapterConfig
 from dbt.adapters.base.impl import catch_as_completed
 from dbt.adapters.base.relation import InformationSchema
 from dbt.adapters.sql import SQLAdapter
@@ -208,18 +206,6 @@ class DatabendAdapter(SQLAdapter):
         raise dbt.exceptions.NotImplementedException(
             "`update_column_sql` is not implemented for this adapter!"
         )
-
-    @available
-    def get_csv_data(self, table):
-        csv_funcs = [c.csvify for c in table._column_types]  # pylint: disable=protected-access
-
-        buf = io.StringIO()
-        writer = csv.writer(buf, lineterminator="\n")
-
-        for row in table.rows:
-            writer.writerow(tuple(csv_funcs[i](d) for i, d in enumerate(row)))
-
-        return buf.getvalue()
 
     def run_sql_for_tests(self, sql, fetch, conn):
         cursor = conn.handle.cursor()
