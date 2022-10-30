@@ -36,4 +36,4 @@ jobs:
 
       - name: Run tests
         run: |
-          PYTHONPATH="${PYTHONPATH}:dbt" pytest tests/integration
+          PYTHONPATH="${PYTHONPATH}:dbt" pytest tests/functional
