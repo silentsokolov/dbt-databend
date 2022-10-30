@@ -35,7 +35,7 @@ class TestCastBoolToText(BaseCastBoolToText):
     pass
 
 
-@mark.skip("Not func DateAdd")
+@mark.skip("Work! Skip because NOT NULL is dafault")
 class TestDateAdd(BaseDateAdd):
     pass
 
@@ -79,7 +79,7 @@ class TestIntersect(BaseIntersect):
     pass
 
 
-@mark.skip("Not func dateadd")
+@mark.skip("Work! Skip because NOT NULL is dafault")
 class TestLastDay(BaseLastDay):
     pass
 

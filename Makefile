@@ -50,4 +50,4 @@ fmt:
 
 test:
 	@echo "--> Running tests"
-	PYTHONPATH="${PYTHONPATH}:dbt" pytest -v tests/integration
+	PYTHONPATH="${PYTHONPATH}:dbt" pytest -v tests/functional
