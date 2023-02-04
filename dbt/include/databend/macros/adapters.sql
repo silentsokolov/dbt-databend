@@ -21,7 +21,7 @@
     create transient table {{ relation.name }}
   {%- else %}
     create table {{ relation.include(database=False) }}
-    {{ cluster_by_clause(label="cluster by") }}
+    {{ cluster_by_clause(label='cluster by') }}
   {%- endif %}
   as {{ sql }}
 {%- endmacro %}

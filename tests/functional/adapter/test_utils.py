@@ -40,12 +40,12 @@ class TestDateAdd(BaseDateAdd):
     pass
 
 
-@mark.skip("Not func DateTrunc")
+# @mark.skip("Not func DateTrunc")
 class TestBaseDateTrunc(BaseDateTrunc):
     pass
 
 
-@mark.skip("Not support ||")
+# @mark.skip("Not support ||")
 class TestConcat(BaseConcat):
     pass
 

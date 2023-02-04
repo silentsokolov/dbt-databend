@@ -12,7 +12,7 @@
       columns.name as column_name,
       0 as column_index,
       columns.type as column_type,
-      null as column_comment,
+      columns.comment as column_comment,
       null as table_owner
     from system.columns as columns
     join system.tables as tables on tables.database = columns.database and tables.name = columns.table
