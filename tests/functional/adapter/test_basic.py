@@ -51,7 +51,7 @@ class TestValidateConnection(BaseValidateConnection):
     pass
 
 
-@mark.skip("Need fix https://github.com/datafuselabs/databend/issues/6922")
+# @mark.skip("Need fix https://github.com/datafuselabs/databend/issues/6922")
 class TestDocsGenerate(BaseDocsGenerate):
     @pytest.fixture(scope="class")
     def expected_catalog(self, project, profile_user):
@@ -67,7 +67,7 @@ class TestDocsGenerate(BaseDocsGenerate):
         )
 
 
-@mark.skip("Need fix https://github.com/datafuselabs/databend/issues/6922")
+# @mark.skip("Need fix https://github.com/datafuselabs/databend/issues/6922")
 class TestDocsGenReferences(BaseDocsGenReferences):
     @pytest.fixture(scope="class")
     def expected_catalog(self, project, profile_user):
