@@ -9,12 +9,13 @@
       tables.name as table_name,
       if(tables.engine = 'VIEW', 'view', 'table') as table_type,
       null as table_comment,
-      null as column_name,
+      columns.name as column_name,
       0 as column_index,
-      null as column_type,
+      columns.type as column_type,
       null as column_comment,
       null as table_owner
-    from system.tables
+    from system.columns as columns
+    join system.tables as tables on tables.database = columns.database and tables.name = columns.table
     where tables.database != 'system' and
     (
     {%- for schema in schemas -%}
