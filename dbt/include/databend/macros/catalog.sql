@@ -1,7 +1,4 @@
 {% macro databend__get_catalog(information_schema, schemas) -%}
-  {%- call statement('planner') -%}
-    set enable_planner_v2 = 1;
-  {%- endcall -%}
   {%- call statement('catalog', fetch_result=True) -%}
     select
       null as table_database,
