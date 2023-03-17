@@ -17,7 +17,7 @@ jobs:
           - '3.8'
           - '3.9'
         databend-version:
-          - 'v0.9.23-nightly'
+          - 'v1.0.22-nightly'
 
     steps:
       - name: Checkout
